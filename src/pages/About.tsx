@@ -167,14 +167,14 @@ const About = () => {
               Education
             </h3>
             <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              {/* Removed glowy effect */}
               <div className="relative bg-primary-900/80 backdrop-blur-xl p-6 rounded-xl border border-white/10 hover:border-accent-500/20 transition-all duration-300">
                 <div className="flex items-center space-x-3 mb-4">
                   <GraduationCap size={32} className="text-accent-500 group-hover:text-accent-400 transition-colors duration-300" />
                   <h4 className="text-2xl font-semibold font-oregano text-white group-hover:text-accent-500 transition-colors duration-300">Maynooth University</h4>
                 </div>
                 <p className="text-white/80">Bachelor's in Product Design & Innovation</p>
-                <p className="text-white/60 mt-1">2023 - Present</p>
+                  <p className="text-white/60 mt-1">2024 - Present</p>
               </div>
             </div>
           </motion.div>
@@ -192,18 +192,18 @@ const About = () => {
             <div className="space-y-6">
               {[
                 {
-                  title: "Product Design Intern",
-                  company: "Tech Innovation Labs",
+                  title: "Marketing & Communication Assistant",
+                  company: "Cancer Trials Ireland",
                   period: "Summer 2024",
-                  description: "Worked on innovative product designs and prototypes",
+                  description: "Enhanced video editing skills for professional use and produced content aligned with organizational branding",
                   icon: <Briefcase size={32} className="text-accent-500 group-hover:text-accent-400 transition-colors duration-300" />,
                   color: "from-accent-500 to-accent-400"
                 },
                 {
-                  title: "UI/UX Design Project",
-                  company: "University Project",
-                  period: "Spring 2024",
-                  description: "Led the design of a responsive web application",
+                  title: "Freelance projects",
+                  company: "Freelance",
+                  period: "2022 - Present",
+                  description: "Managed freelance projects in video editing, brand content, custom design, and app development—improving engagement, brand reach, and data efficiency.",
                   icon: <Terminal size={32} className="text-accent-500 group-hover:text-accent-400 transition-colors duration-300" />,
                   color: "from-purple-500 to-pink-500"
                 }
@@ -245,8 +245,7 @@ const About = () => {
               {[
                 { name: "English", level: "Native", color: "from-emerald-500 to-teal-500" },
                 { name: "Hindi", level: "Native", color: "from-violet-500 to-purple-500" },
-                { name: "Korean", level: "Learning", color: "from-rose-500 to-pink-500" },
-                { name: "Mandarin", level: "Learning", color: "from-red-500 to-orange-500" }
+                { name: "Korean", level: "Learning", color: "from-rose-500 to-pink-500" }
               ].map((lang, i) => (
                 <motion.div
                   key={lang.name}

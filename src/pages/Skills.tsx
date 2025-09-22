@@ -47,7 +47,7 @@ const Skills = () => {
   };
 
   return (
-    <section className="py-20 min-h-screen flex items-center">
+  <section className="pt-32 pb-20 min-h-screen flex items-center">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div
