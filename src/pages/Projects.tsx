@@ -87,7 +87,7 @@ const Projects = () => {
   };
 
   return (
-    <section className="py-20 min-h-screen">
+    <section className="pt-32 pb-20 min-h-screen">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <motion.div

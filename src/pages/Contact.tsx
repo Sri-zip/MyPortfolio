@@ -30,7 +30,7 @@ const Contact = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-20">
+    <section className="min-h-screen pt-32 pb-20">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div

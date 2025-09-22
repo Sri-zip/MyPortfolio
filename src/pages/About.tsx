@@ -21,7 +21,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-primary-900 font-nunito">
       {/* Hero Section */}
-      <section className="min-h-screen relative flex items-center">
+      <section className="min-h-screen relative flex items-center pt-24">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
             {/* Profile Image */}
@@ -33,7 +33,7 @@ const About = () => {
             >
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                <div className="relative aspect-[3/4] w-full bg-glass-gradient backdrop-blur-xl rounded-xl border border-white/10 overflow-hidden transition-all duration-300">
+                <div className="relative aspect-[3/4] w-full rounded-xl border border-white/10 overflow-hidden transition-all duration-300 bg-primary-800/50">
                   <img 
                     src={profileImage} 
                     alt="Profile Picture" 

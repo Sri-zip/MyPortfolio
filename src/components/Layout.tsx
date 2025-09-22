@@ -11,9 +11,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <StarField />
       
       {/* Navigation Menu */}
-      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-50">
-        <div className="px-8 py-4 rounded-full bg-glass-dark backdrop-blur-xl border border-white/10 shadow-glass-sm hover:shadow-glass transition-all duration-500">
-          <ul className="flex space-x-10">
+      <nav className="fixed top-4 md:top-8 left-1/2 -translate-x-1/2 z-50 w-[90%] md:w-auto">
+        <div className="px-4 md:px-8 py-3 md:py-4 rounded-full bg-glass-dark backdrop-blur-xl border border-white/10 shadow-glass-sm hover:shadow-glass transition-all duration-500">
+          <ul className="flex justify-between md:justify-center md:space-x-10 space-x-2">
             {[
               { name: 'Home', path: '/' },
               { name: 'About', path: '/about' },
@@ -24,7 +24,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <li key={item.name}>
                 <Link
                   to={item.path}
-                  className={`relative text-white/90 hover:text-accent-500 transition-colors duration-300 text-lg font-oregano group ${
+                  className={`relative text-white/90 hover:text-accent-500 transition-colors duration-300 text-sm md:text-lg font-oregano group px-2 md:px-0 ${
                     location.pathname === item.path ? 'text-accent-500' : ''
                   }`}
                 >
