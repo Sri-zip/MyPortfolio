@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo, useCallback, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, Users, Target, Lightbulb, ChevronLeft, ChevronRight } from 'lucide-react';
 // Import your Smart Attendance System image
@@ -160,35 +160,40 @@ const Projects = () => {
   ];
 
   // Carousel navigation functions
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % digitalGraphics.length);
-  };
+  }, [digitalGraphics.length]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + digitalGraphics.length) % digitalGraphics.length);
-  };
+  }, [digitalGraphics.length]);
 
-  const filteredProjects = activeCategory === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeCategory);
+  const filteredProjects = useMemo(() => 
+    activeCategory === 'all' 
+      ? projects 
+      : projects.filter(project => project.category === activeCategory),
+    [activeCategory]
+  );
 
+  // Optimized animation variants for mobile performance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.05, // Reduced stagger for faster load
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 10 }, // Reduced movement
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5
+        duration: 0.3 // Faster animations
       }
     }
   };
@@ -402,24 +407,28 @@ const Projects = () => {
                 className="group relative cursor-pointer"
                 variants={itemVariants}
                 onClick={() => setSelectedProject(project)}
+                whileHover={{ scale: 1.02 }} // Simplified hover effect
+                transition={{ duration: 0.2 }}
               >
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                <div className="relative bg-glass-dark backdrop-blur-xl rounded-xl overflow-hidden border border-white/10 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-glass">
+                {/* Simplified gradient border */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/30 to-accent-400/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative bg-glass-dark backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 transition-all duration-200">
                   <div className="relative overflow-hidden h-40 sm:h-48 md:h-56">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                       decoding="async"
+                      style={{ willChange: 'transform' }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900 to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900/60 to-transparent"></div>
                     
-                    {/* Glass Overlay */}
-                    <div className="absolute inset-0 bg-glass-dark backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    {/* Simplified overlay */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                     
                     {/* Click to View Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                       <div className="px-4 sm:px-6 py-2 sm:py-3 bg-accent-500/20 text-accent-500 rounded-full border border-accent-500/30 backdrop-blur-sm">
                         <span className="font-ui font-medium text-sm sm:text-base">
                           {project.category === 'product' && "🔧 Explore the Build"}
@@ -484,20 +493,23 @@ const Projects = () => {
             </div>
 
             <div className="relative max-w-5xl mx-auto px-4">
-              {/* Carousel Container */}
+              {/* Carousel Container - Simplified for performance */}
               <div className="relative overflow-hidden rounded-2xl">
-                <motion.div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                <div 
+                  className="flex transition-transform duration-300 ease-out"
+                  style={{ 
+                    transform: `translateX(-${currentSlide * 100}%)`,
+                    willChange: 'transform'
+                  }}
                 >
-                  {digitalGraphics.map((graphic, index) => (
+                  {digitalGraphics.map((graphic) => (
                     <div key={graphic.id} className="w-full flex-shrink-0">
                       <div className="relative group">
-                        {/* Background Glow */}
-                        <div className="absolute -inset-1 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-2xl blur-lg opacity-75"></div>
+                        {/* Simplified background glow */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-accent-500/30 to-accent-400/30 rounded-2xl blur opacity-60"></div>
                         
                         {/* Card Content */}
-                        <div className="relative bg-glass-dark backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+                        <div className="relative bg-glass-dark backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden">
                           <div className="aspect-video sm:aspect-[16/9] relative">
                             <img 
                               src={graphic.image} 
@@ -525,21 +537,22 @@ const Projects = () => {
                       </div>
                     </div>
                   ))}
-                </motion.div>
+                </div>
               </div>
 
-              {/* Navigation Buttons */}
+              {/* Navigation Buttons - Optimized */}
               <button
                 onClick={prevSlide}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-glass-dark backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-colors duration-200"
+                style={{ willChange: 'color, border-color' }}
               >
                 <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-                <div className="absolute inset-0 rounded-full bg-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               
               <button
                 onClick={nextSlide}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-glass-dark backdrop-blur-sm border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-colors duration-200"
+                style={{ willChange: 'color, border-color' }}
               >
                 <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 <div className="absolute inset-0 rounded-full bg-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
