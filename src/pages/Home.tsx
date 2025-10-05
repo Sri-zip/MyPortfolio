@@ -16,8 +16,18 @@ const Home = () => {
         {/* Shimmering overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent animate-shimmer"></div>
 
+        {/* Background floating elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 left-10 w-16 h-16 rounded-full bg-gradient-to-r from-primary-400 to-secondary-400 opacity-20 animate-float-slow" />
+          <div className="absolute top-32 right-20 w-8 h-8 rounded-full bg-gradient-to-r from-accent-400 to-primary-400 opacity-20 animate-float" />
+          <div className="absolute bottom-32 left-20 w-12 h-12 rounded-full bg-gradient-to-r from-secondary-400 to-accent-400 opacity-20 animate-float-slow" />
+          <div className="absolute bottom-20 right-10 w-6 h-6 rounded-full bg-gradient-to-r from-primary-400 to-accent-400 opacity-20 animate-float" />
+          <div className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-gradient-to-r from-accent-400 to-secondary-400 opacity-20 animate-float-slow" />
+          <div className="absolute top-1/3 right-1/3 w-10 h-10 rounded-full bg-gradient-to-r from-secondary-400 to-primary-400 opacity-20 animate-float" />
+        </div>
+
         {/* Floating elements with inner glow - Responsive */}
-        {[...Array(3)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute hidden lg:block"
@@ -25,8 +35,8 @@ const Home = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: i * 0.3 }}
             style={{
-              top: `${20 + (i * 20)}%`,
-              left: `${15 + (i * 25)}%`,
+              top: `${10 + (i * 15)}%`,
+              left: `${10 + (i * 15)}%`,
             }}
           >
             <div className="relative">
