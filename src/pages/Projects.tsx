@@ -1,65 +1,172 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, Play, Image as ImageIcon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Calendar, Users, Target, Lightbulb, ChevronLeft, ChevronRight } from 'lucide-react';
+// Import your Smart Attendance System image
+import smartAttendanceImage from '../assets/ChatGPT Image Oct 4, 2025 at 11_20_57 PM.png';
+// Import your Digital Content Creation image
+import digitalContentImage from '../assets/SP_1NIR.png';
+// Import your Digital Graphic Collection image
+import digitalGraphicImage from '../assets/신 라면.png';
+// Import carousel images
+import ramyeonImage from '../assets/신 라면.png';
+import nirchalSquareImage from '../assets/Nirchal_square.png';
+import supraImage from '../assets/スープラ.png';
+import sp1nirImage from '../assets/SP_1NIR.png';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Digital Graphics Carousel Data
+  const digitalGraphics = [
+    {
+      id: 1,
+      title: "Ramyeon Design",
+      image: ramyeonImage,
+      description: "Creative graphic design artwork",
+      category: "Digital Art"
+    },
+    {
+      id: 2, 
+      title: "NIRCHAL Square Design",
+      image: nirchalSquareImage,
+      description: "Brand identity square format design",
+      category: "Brand Design"
+    },
+    {
+      id: 3,
+      title: "Supra Design",
+      image: supraImage,
+      description: "Automotive-inspired digital artwork",
+      category: "Digital Art"
+    },
+    {
+      id: 4,
+      title: "NIRCHAL Collection",
+      image: nirchalSquareImage,
+      description: "Fashion brand promotional design",
+      category: "Brand Design"
+    },
+    {
+      id: 5,
+      title: "SP1NIR Design",
+      image: sp1nirImage,
+      description: "Creative brand visual identity",
+      category: "Brand Design"
+    }
+  ];
 
   const categories = [
     { id: 'all', name: 'All Projects' },
     { id: 'product', name: 'Product Design' },
     { id: 'graphics', name: 'Graphics' },
-    { id: 'video', name: 'Video Editing' },
     { id: 'artwork', name: 'Artwork' }
   ];
 
   const projects = [
     {
       id: 1,
-      title: "Smart IoT Device",
+      title: "Smart Attendance System",
       category: "product",
-      description: "Innovative electrical engineering project combining hardware design with user-centered product development.",
-      image: "https://images.pexels.com/photos/356056/pexels-photo-356056.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Arduino", "PCB Design", "3D Printing", "IoT"],
+      description: "Smart Attendance System built during second semester at Maynooth University. Uses Arduino UNO, RFID reader, ESP8266 Wi-Fi module, and LCD with I2C to automate attendance recording, replacing manual sign-ins with RFID-based check-ins and cloud data integration.",
+      image: smartAttendanceImage,
+      technologies: ["Arduino UNO", "RFID", "ESP8266", "IoT", "LCD Display"],
       links: {
         demo: "#",
         github: "#"
-      }
+      },
+      // Enhanced details for modal
+      fullDescription: "Developed a comprehensive Smart Attendance System as part of our second semester project at Maynooth University. This innovative solution transforms traditional attendance tracking by implementing RFID technology for seamless check-ins.",
+      features: [
+        "RFID card scanning for instant attendance marking",
+        "Real-time feedback through LEDs and buzzer confirmation",
+        "LCD display with I2C for attendance status updates",
+        "Cloud integration using ESP8266 Wi-Fi module",
+        "Automated data logging and storage",
+        "Energy-efficient Arduino UNO microcontroller system"
+      ],
+      challenges: [
+        "Integrating multiple hardware components seamlessly",
+        "Ensuring reliable Wi-Fi connectivity for cloud uploads",
+        "Optimizing power consumption for continuous operation",
+        "Creating an intuitive user interface on LCD display"
+      ],
+      impact: "Eliminated manual attendance tracking, reduced processing time by 90%, and improved accuracy of attendance records.",
+      duration: "4 months",
+      team: "3 members",
+      role: "Lead Developer & Hardware Designer"
     },
     {
       id: 2,
-      title: "Brand Identity Design",
+      title: "Multi-Brand Identity System - KDADKS",
       category: "graphics",
-      description: "Complete brand identity package including logo design, color palette, and marketing materials.",
+      description: "Comprehensive brand identity ecosystem for KDADKS Service Pvt Ltd and its five sub-brands: NIRCHAL, IT-Wala, Rahi Rides, and Ayuh Clinic. Created cohesive visual identity system ensuring consistency across multiple platforms and campaigns.",
       image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Adobe Illustrator", "Photoshop", "Brand Strategy"],
+      technologies: ["Adobe Illustrator", "Photoshop", "Brand Strategy", "Digital Marketing"],
       links: {
         demo: "#"
-      }
+      },
+      fullDescription: "Led the complete visual branding initiative for KDADKS Service Pvt Ltd (kdadks.com) and strategically designed distinct yet cohesive brand identities for four specialized sub-brands: NIRCHAL (nirchal.com), IT-Wala (it-wala.com), Rahi Rides (raahirides.com), and Ayuh Clinic (ayuhclinic.com).",
+      features: [
+        "Official logo design for parent company and 4 sub-brands",
+        "Cohesive brand architecture ensuring visual consistency",
+        "Digital asset creation for web and social media platforms",
+        "Visually engaging poster designs for marketing campaigns",
+        "Social media content templates and brand guidelines",
+        "Cross-platform visual identity system implementation"
+      ],
+      challenges: [
+        "Creating distinct identities while maintaining brand family cohesion",
+        "Ensuring scalability across diverse industry verticals",
+        "Balancing individual brand personalities with parent company values",
+        "Maintaining consistency across 5 different websites and platforms"
+      ],
+      impact: "Successfully launched 5 interconnected brand identities, enhanced audience engagement across multiple platforms, and established a scalable visual branding system for future expansion.",
+      duration: "8 months (March 2025 - Present)",
+      team: "Solo project",
+      role: "Graphic Designer & Marketing Content Creator"
     },
     {
       id: 3,
-      title: "Product Launch Video",
-      category: "video",
-      description: "Professional product showcase video with motion graphics and compelling storytelling.",
-      image: "https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Premiere Pro", "After Effects", "Color Grading"],
-      links: {
-        demo: "#"
-      }
-    },
-    {
-      id: 4,
-      title: "Digital Art Collection",
+      title: "Digital Content Creation",
       category: "artwork",
-      description: "Series of digital illustrations exploring futuristic themes and innovative design concepts.",
-      image: "https://images.pexels.com/photos/1194420/pexels-photo-1194420.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Digital Painting", "Concept Art", "Visual Design"],
+      description: "Freelance digital marketing content that blends strong visuals with storytelling for brand campaigns.",
+      image: digitalContentImage,
+      technologies: ["Adobe Photoshop", "Illustrator", "Video Editing"],
       links: {
         demo: "#"
-      }
+      },
+      fullDescription: "As a freelance digital creator, I've designed marketing content that blends strong visuals with storytelling. From posters to promotional videos, my work focuses on capturing attention and delivering results for brands.",
+      features: [
+        "Brand launch campaign design for NIRCHAL",
+        "Social media visual content creation",
+        "Promotional video editing with animations",
+        "Marketing poster design with luxury appeal",
+        "Bold color contrasts and elegant typography",
+        "Results-driven marketing visuals"
+      ],
+      challenges: [
+        "Creating luxury brand appeal through design",
+        "Balancing bold visuals with elegant typography",
+        "Delivering measurable engagement results",
+        "Capturing brand essence in festive collection campaign"
+      ],
+      impact: "Brand Launch Campaign for NIRCHAL boosted online engagement by 40% and attracted new customers to the brand's website.",
+      duration: "Campaign duration: 2 months",
+      team: "Solo freelance project",
+      role: "Digital Creator & Marketing Content Designer"
     }
   ];
+
+  // Carousel navigation functions
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % digitalGraphics.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + digitalGraphics.length) % digitalGraphics.length);
+  };
 
   const filteredProjects = activeCategory === 'all' 
     ? projects 
@@ -85,6 +192,159 @@ const Projects = () => {
       }
     }
   };
+
+  const ProjectModal = ({ project, onClose }: { project: any; onClose: () => void }) => (
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        {/* Backdrop */}
+        <motion.div
+          className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+          onClick={onClose}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        />
+        
+        {/* Modal Content */}
+        <motion.div
+          className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-glass-dark backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
+          initial={{ scale: 0.8, opacity: 0, y: 50 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.8, opacity: 0, y: 50 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+        >
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-6 right-6 z-10 p-2 rounded-full bg-glass-white backdrop-blur-sm border border-white/10 hover:border-red-500/50 hover:bg-red-500/10 transition-all duration-300 group"
+          >
+            <X className="w-5 h-5 text-white/80 group-hover:text-red-400" />
+          </button>
+
+          {/* Header Section */}
+          <div className="relative">
+            <div className="h-64 md:h-80 overflow-hidden rounded-t-2xl">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            </div>
+            
+            <div className="absolute bottom-6 left-6 right-16">
+              <motion.h2
+                className="text-3xl md:text-4xl font-bold text-white mb-2"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                {project.title}
+              </motion.h2>
+              <div className="flex items-center gap-4 text-white/80">
+                <span className="flex items-center gap-1">
+                  <Calendar className="w-4 h-4" />
+                  {project.duration}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Users className="w-4 h-4" />
+                  {project.team}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Content Section */}
+          <div className="p-8 space-y-8">
+            {/* Role & Impact */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-glass-white backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                <h4 className="text-accent-500 font-semibold mb-2 flex items-center gap-2">
+                  <Target className="w-5 h-5" />
+                  My Role
+                </h4>
+                <p className="text-white/90">{project.role}</p>
+              </div>
+              <div className="bg-glass-white backdrop-blur-sm p-6 rounded-xl border border-white/10">
+                <h4 className="text-accent-500 font-semibold mb-2 flex items-center gap-2">
+                  <Lightbulb className="w-5 h-5" />
+                  Impact
+                </h4>
+                <p className="text-white/90">{project.impact}</p>
+              </div>
+            </div>
+
+            {/* Description */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">About This Project</h3>
+              <p className="text-white/80 text-lg leading-relaxed">{project.fullDescription}</p>
+            </div>
+
+            {/* Features */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Key Features</h3>
+              <div className="grid md:grid-cols-2 gap-3">
+                {project.features.map((feature, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-3 p-3 bg-glass-white backdrop-blur-sm rounded-lg border border-white/5"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + index * 0.05 }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-accent-500 mt-2 flex-shrink-0" />
+                    <span className="text-white/90">{feature}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Challenges */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Challenges Overcome</h3>
+              <div className="grid md:grid-cols-2 gap-3">
+                {project.challenges.map((challenge, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-start gap-3 p-3 bg-glass-white backdrop-blur-sm rounded-lg border border-white/5"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 + index * 0.05 }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-orange-400 mt-2 flex-shrink-0" />
+                    <span className="text-white/90">{challenge}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Technologies */}
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Technologies Used</h3>
+              <div className="flex flex-wrap gap-3">
+                {project.technologies.map((tech, index) => (
+                  <motion.span
+                    key={index}
+                    className="px-4 py-2 bg-accent-500/10 text-accent-400 rounded-lg border border-accent-500/20 font-medium"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + index * 0.05 }}
+                  >
+                    {tech}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
 
   return (
     <section className="pt-32 pb-20 min-h-screen">
@@ -137,8 +397,9 @@ const Projects = () => {
             {filteredProjects.map((project) => (
               <motion.div
                 key={project.id}
-                className="group relative"
+                className="group relative cursor-pointer"
                 variants={itemVariants}
+                onClick={() => setSelectedProject(project)}
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
                 <div className="relative bg-glass-dark backdrop-blur-xl rounded-xl overflow-hidden border border-white/10 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-glass">
@@ -153,28 +414,15 @@ const Projects = () => {
                     {/* Glass Overlay */}
                     <div className="absolute inset-0 bg-glass-dark backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     
-                    {/* Project Links Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                      {project.links.demo && (
-                        <a
-                          href={project.links.demo}
-                          className="p-3 bg-accent-500/20 text-accent-500 rounded-full hover:bg-accent-500/30 hover:shadow-neon transition-all duration-300"
-                          title="View Demo"
-                        >
-                          {project.category === 'video' ? <Play size={20} /> : 
-                           project.category === 'artwork' ? <ImageIcon size={20} /> : 
-                           <ExternalLink size={20} />}
-                        </a>
-                      )}
-                      {project.links.github && (
-                        <a
-                          href={project.links.github}
-                          className="p-3 bg-glass-white text-white/90 rounded-full hover:bg-white/20 hover:text-white transition-all duration-300"
-                          title="View Code"
-                        >
-                          <Github size={20} />
-                        </a>
-                      )}
+                    {/* Click to View Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                      <div className="px-6 py-3 bg-accent-500/20 text-accent-500 rounded-full border border-accent-500/30 backdrop-blur-sm">
+                        <span className="font-medium">
+                          {project.category === 'product' && "🔧 Explore the Build"}
+                          {project.category === 'graphics' && "🎨 See the Process"}
+                          {project.category === 'artwork' && "✨ Enter the Gallery"}
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -185,7 +433,7 @@ const Projects = () => {
                     <p className="text-white/70 text-sm mb-4 line-clamp-3">{project.description}</p>
                     
                     <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, index) => (
+                      {project.technologies.slice(0, 3).map((tech, index) => (
                         <span
                           key={index}
                           className="px-3 py-1 bg-glass-dark backdrop-blur-sm text-white/80 text-xs rounded-full border border-white/5 group-hover:border-accent-500/20 transition-colors duration-300"
@@ -193,12 +441,128 @@ const Projects = () => {
                           {tech}
                         </span>
                       ))}
+                      {project.technologies.length > 3 && (
+                        <span className="px-3 py-1 bg-glass-dark backdrop-blur-sm text-white/60 text-xs rounded-full border border-white/5">
+                          +{project.technologies.length - 3} more
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+
+          {/* Digital Graphics Carousel Section */}
+          <motion.div
+            className="relative mt-20 mb-16"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <div className="text-center mb-12">
+              <motion.h3 
+                className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                Digital Graphics Showcase
+              </motion.h3>
+              <motion.p 
+                className="text-white/70 text-lg max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
+                A curated collection of my digital design work and brand campaigns
+              </motion.p>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              {/* Carousel Container */}
+              <div className="relative overflow-hidden rounded-2xl">
+                <motion.div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {digitalGraphics.map((graphic, index) => (
+                    <div key={graphic.id} className="w-full flex-shrink-0">
+                      <div className="relative group">
+                        {/* Background Glow */}
+                        <div className="absolute -inset-1 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-2xl blur-lg opacity-75"></div>
+                        
+                        {/* Card Content */}
+                        <div className="relative bg-glass-dark backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
+                          <div className="aspect-video relative">
+                            <img 
+                              src={graphic.image} 
+                              alt={graphic.title}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                            
+                            {/* Category Badge */}
+                            <div className="absolute top-4 left-4">
+                              <span className="px-3 py-1 bg-accent-500/20 text-accent-500 text-sm font-medium rounded-full border border-accent-500/30 backdrop-blur-sm">
+                                {graphic.category}
+                              </span>
+                            </div>
+                          </div>
+                          
+                          {/* Text Content */}
+                          <div className="p-6">
+                            <h4 className="text-xl font-semibold text-white mb-2">{graphic.title}</h4>
+                            <p className="text-white/70">{graphic.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
+              >
+                <ChevronLeft className="w-6 h-6" />
+                <div className="absolute inset-0 rounded-full bg-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+              
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
+              >
+                <ChevronRight className="w-6 h-6" />
+                <div className="absolute inset-0 rounded-full bg-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-8 space-x-3">
+                {digitalGraphics.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      currentSlide === index 
+                        ? 'bg-accent-500 shadow-neon' 
+                        : 'bg-white/20 hover:bg-white/40'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Project Modal */}
+          {selectedProject && (
+            <ProjectModal
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />
+          )}
         </div>
       </div>
     </section>

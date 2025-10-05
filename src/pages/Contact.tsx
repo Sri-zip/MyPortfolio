@@ -1,31 +1,73 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, Youtube } from 'lucide-react';
+import { Mail, Linkedin, Instagram, Send } from 'lucide-react';
+import { useState } from 'react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      // Create mailto link with form data
+      const subject = encodeURIComponent(`Portfolio Contact: Message from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      );
+      const mailtoLink = `mailto:tejalsriva@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Open mail client
+      window.location.href = mailtoLink;
+      
+      setSubmitMessage('Opening your email client...');
+      
+      // Reset form after delay
+      setTimeout(() => {
+        setFormData({ name: '', email: '', message: '' });
+        setSubmitMessage('');
+      }, 2000);
+      
+    } catch (error) {
+      setSubmitMessage('Something went wrong. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const socialLinks = [
     {
       name: 'Email',
       icon: <Mail className="w-6 h-6" />,
-      href: 'mailto:your.email@example.com',
-      color: 'hover:text-accent-500'
-    },
-    {
-      name: 'GitHub',
-      icon: <Github className="w-6 h-6" />,
-      href: 'https://github.com/yourusername',
+      href: 'mailto:tejalsriva@gmail.com',
       color: 'hover:text-accent-500'
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-6 h-6" />,
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://www.linkedin.com/in/tejal-srivastava-272899298/',
       color: 'hover:text-accent-500'
     },
     {
-      name: 'YouTube',
-      icon: <Youtube className="w-6 h-6" />,
-      href: 'https://youtube.com/@yourusername',
-      color: 'hover:text-red-500'
+      name: 'Instagram',
+      icon: <Instagram className="w-6 h-6" />,
+      href: 'https://www.instagram.com/tejal.creates?igsh=MWtpY3gxb2syNDdoZg==',
+      color: 'hover:text-pink-500'
     }
   ];
 
@@ -59,13 +101,18 @@ const Contact = () => {
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
               <div className="relative bg-glass-dark backdrop-blur-xl p-8 rounded-xl border border-white/10 hover:border-accent-500/20 transition-all duration-300">
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label className="block text-white/80 mb-2" htmlFor="name">Name</label>
                     <input
                       type="text"
                       id="name"
-                      className="w-full px-4 py-2 rounded-lg bg-glass-white backdrop-blur-sm border border-white/10 text-white/90 focus:border-accent-500 focus:outline-none focus:ring-1 focus:ring-accent-500 transition-all duration-300"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 rounded-lg bg-glass-white backdrop-blur-sm border border-white/10 text-white/90 placeholder-white/50 focus:border-accent-500 focus:outline-none focus:ring-1 focus:ring-accent-500 transition-all duration-300"
+                      placeholder="Your Name"
                     />
                   </div>
                   <div>
@@ -73,22 +120,43 @@ const Contact = () => {
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-2 rounded-lg bg-glass-white backdrop-blur-sm border border-white/10 text-white/90 focus:border-accent-500 focus:outline-none focus:ring-1 focus:ring-accent-500 transition-all duration-300"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-2 rounded-lg bg-glass-white backdrop-blur-sm border border-white/10 text-white/90 placeholder-white/50 focus:border-accent-500 focus:outline-none focus:ring-1 focus:ring-accent-500 transition-all duration-300"
+                      placeholder="your.email@example.com"
                     />
                   </div>
                   <div>
                     <label className="block text-white/80 mb-2" htmlFor="message">Message</label>
                     <textarea
                       id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
                       rows={4}
-                      className="w-full px-4 py-2 rounded-lg bg-glass-white backdrop-blur-sm border border-white/10 text-white/90 focus:border-accent-500 focus:outline-none focus:ring-1 focus:ring-accent-500 transition-all duration-300"
+                      className="w-full px-4 py-2 rounded-lg bg-glass-white backdrop-blur-sm border border-white/10 text-white/90 placeholder-white/50 focus:border-accent-500 focus:outline-none focus:ring-1 focus:ring-accent-500 transition-all duration-300 resize-none"
+                      placeholder="Your message here..."
                     ></textarea>
                   </div>
+                  
+                  {submitMessage && (
+                    <div className="text-center">
+                      <p className="text-accent-500 text-sm">{submitMessage}</p>
+                    </div>
+                  )}
+                  
                   <button
                     type="submit"
-                    className="w-full px-8 py-3 rounded-lg bg-glass-dark backdrop-blur-xl border border-accent-500/20 text-accent-500 hover:text-white hover:bg-accent-500/20 hover:border-accent-500 hover:shadow-neon transition-all duration-300 group"
+                    disabled={isSubmitting}
+                    className="w-full px-8 py-3 rounded-lg bg-glass-dark backdrop-blur-xl border border-accent-500/20 text-accent-500 hover:text-white hover:bg-accent-500/20 hover:border-accent-500 hover:shadow-neon transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                   >
-                    <span className="relative z-10 font-medium">Send Message</span>
+                    <Send className="w-5 h-5" />
+                    <span className="relative z-10 font-medium">
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
+                    </span>
                     <span className="absolute inset-0 bg-accent-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
                   </button>
                 </form>
