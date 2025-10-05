@@ -1,8 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useMemo } from 'react';
 
 const Home = () => {
   const navigate = useNavigate();
+
+  // Memoize floating elements for better performance
+  const floatingElements = useMemo(() => 
+    [...Array(6)].map((_, i) => ({
+      id: i,
+      top: `${10 + (i * 15)}%`,
+      left: `${10 + (i * 15)}%`,
+      delay: i * 0.3
+    }))
+  , []);
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative px-4 sm:px-6">
@@ -18,25 +29,33 @@ const Home = () => {
 
         {/* Background floating elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-16 h-16 rounded-full bg-gradient-to-r from-primary-400 to-secondary-400 opacity-20 animate-float-slow" />
-          <div className="absolute top-32 right-20 w-8 h-8 rounded-full bg-gradient-to-r from-accent-400 to-primary-400 opacity-20 animate-float" />
-          <div className="absolute bottom-32 left-20 w-12 h-12 rounded-full bg-gradient-to-r from-secondary-400 to-accent-400 opacity-20 animate-float-slow" />
-          <div className="absolute bottom-20 right-10 w-6 h-6 rounded-full bg-gradient-to-r from-primary-400 to-accent-400 opacity-20 animate-float" />
-          <div className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-gradient-to-r from-accent-400 to-secondary-400 opacity-20 animate-float-slow" />
-          <div className="absolute top-1/3 right-1/3 w-10 h-10 rounded-full bg-gradient-to-r from-secondary-400 to-primary-400 opacity-20 animate-float" />
+          <div className="absolute top-20 left-10 w-16 h-16 rounded-full bg-gradient-to-r from-primary-400 to-secondary-400 opacity-20 animate-float-slow" 
+               style={{ transform: 'translateZ(0)', willChange: 'transform' }} />
+          <div className="absolute top-32 right-20 w-8 h-8 rounded-full bg-gradient-to-r from-accent-400 to-primary-400 opacity-20 animate-float" 
+               style={{ transform: 'translateZ(0)', willChange: 'transform' }} />
+          <div className="absolute bottom-32 left-20 w-12 h-12 rounded-full bg-gradient-to-r from-secondary-400 to-accent-400 opacity-20 animate-float-slow" 
+               style={{ transform: 'translateZ(0)', willChange: 'transform' }} />
+          <div className="absolute bottom-20 right-10 w-6 h-6 rounded-full bg-gradient-to-r from-primary-400 to-accent-400 opacity-20 animate-float" 
+               style={{ transform: 'translateZ(0)', willChange: 'transform' }} />
+          <div className="absolute top-1/2 left-1/4 w-4 h-4 rounded-full bg-gradient-to-r from-accent-400 to-secondary-400 opacity-20 animate-float-slow" 
+               style={{ transform: 'translateZ(0)', willChange: 'transform' }} />
+          <div className="absolute top-1/3 right-1/3 w-10 h-10 rounded-full bg-gradient-to-r from-secondary-400 to-primary-400 opacity-20 animate-float" 
+               style={{ transform: 'translateZ(0)', willChange: 'transform' }} />
         </div>
 
         {/* Floating elements with inner glow - Responsive */}
-        {[...Array(6)].map((_, i) => (
+        {floatingElements.map((element) => (
           <motion.div
-            key={i}
+            key={element.id}
             className="absolute hidden lg:block"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: i * 0.3 }}
+            transition={{ duration: 1, delay: element.delay }}
             style={{
-              top: `${10 + (i * 15)}%`,
-              left: `${10 + (i * 15)}%`,
+              top: element.top,
+              left: element.left,
+              transform: 'translateZ(0)',
+              willChange: 'transform, opacity',
             }}
           >
             <div className="relative">
@@ -55,7 +74,8 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-4 sm:mb-6 font-oregano leading-tight">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 via-accent-400 to-accent-500 animate-gradient-nature relative">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 via-accent-400 to-accent-500 animate-gradient-nature relative"
+                    style={{ transform: 'translateZ(0)', willChange: 'background-position' }}>
                 Tejal Srivastava
                 <span className="absolute inset-0 blur-xl bg-gradient-to-r from-accent-500/30 via-accent-400/30 to-accent-500/30 animate-pulse-subtle"></span>
               </span>
@@ -81,6 +101,7 @@ const Home = () => {
             <button
               onClick={() => navigate('/projects')} 
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-glass-dark backdrop-blur-xl border border-accent-500/20 text-accent-500 hover:text-white hover:bg-accent-500/20 hover:border-accent-500 hover:shadow-neon transition-all duration-300 group relative overflow-hidden"
+              style={{ transform: 'translateZ(0)' }}
             >
               <span className="relative z-10 font-medium text-sm sm:text-base">View My Work</span>
               <span className="absolute inset-0 bg-accent-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
@@ -89,6 +110,7 @@ const Home = () => {
             <button
               onClick={() => navigate('/contact')}
               className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-glass-white backdrop-blur-xl border border-white/10 text-white/90 hover:text-white hover:bg-white/10 hover:border-white/30 transition-all duration-300 group relative overflow-hidden"
+              style={{ transform: 'translateZ(0)' }}
             >
               <span className="relative z-10 font-medium text-sm sm:text-base">Get in Touch</span>
               <span className="absolute inset-0 bg-white/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>

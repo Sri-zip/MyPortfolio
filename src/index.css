@@ -4,6 +4,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling and performance optimizations */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* GPU acceleration for animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize transforms and animations */
+.animate-float,
+.animate-float-slow,
+.animate-float-smooth,
+.animate-twinkle,
+.animate-shimmer,
+.animate-flow-x,
+.animate-flow-y,
+.animate-gradient-nature,
+.animate-pulse-subtle {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth scroll for navigation */
+[data-scroll] {
+  scroll-behavior: smooth;
+}
+
 /* Custom Animations */
 @keyframes gradient-x {
   0%, 100% { background-position: 0% 50%; }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 interface Star {
   id: number;
@@ -12,30 +12,40 @@ interface Star {
 const StarField = () => {
   const [stars, setStars] = useState<Star[]>([]);
 
-  useEffect(() => {
-    const generateStars = () => {
-      const numStars = Math.floor(window.innerWidth * window.innerHeight / 10000); // Original density
-      const newStars: Star[] = [];
-      
-      for (let i = 0; i < numStars; i++) {
-        newStars.push({
-          id: i,
-          x: Math.random() * 100, // percentage
-          y: Math.random() * 100, // percentage
-          size: Math.random() * 2 + 1, // 1-3px
-          twinkleDelay: Math.random() * 3, // 0-3s
-          floatDelay: Math.random() * 6, // 0-6s
-        });
-      }
-      
-      setStars(newStars);
-    };
+  const generateStars = useCallback(() => {
+    const numStars = Math.floor(window.innerWidth * window.innerHeight / 10000); // Original density
+    const newStars: Star[] = [];
+    
+    for (let i = 0; i < numStars; i++) {
+      newStars.push({
+        id: i,
+        x: Math.random() * 100, // percentage
+        y: Math.random() * 100, // percentage
+        size: Math.random() * 2 + 1, // 1-3px
+        twinkleDelay: Math.random() * 3, // 0-3s
+        floatDelay: Math.random() * 6, // 0-6s
+      });
+    }
+    
+    setStars(newStars);
+  }, []);
 
+  useEffect(() => {
     generateStars();
 
-    window.addEventListener('resize', generateStars);
-    return () => window.removeEventListener('resize', generateStars);
-  }, []);
+    // Debounced resize handler for better performance
+    let resizeTimeout: number;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(generateStars, 150);
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(resizeTimeout);
+    };
+  }, [generateStars]);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">
@@ -52,6 +62,9 @@ const StarField = () => {
             '--twinkle-duration': `${2 + Math.random() * 2}s`,
             '--float-duration': `${4 + Math.random() * 4}s`,
             animationDelay: `-${star.twinkleDelay}s`,
+            // GPU acceleration
+            transform: 'translateZ(0)',
+            willChange: 'opacity, transform',
           } as React.CSSProperties}
         >
           <div
