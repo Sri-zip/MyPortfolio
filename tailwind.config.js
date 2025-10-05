@@ -2,6 +2,14 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    screens: {
+      'xs': '475px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         'delius': ['Delius', 'cursive'],
@@ -29,6 +37,11 @@ export default {
         'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
         'glass-sm': '0 4px 16px 0 rgba(31, 38, 135, 0.25)',
         'neon': '0 0 5px theme(colors.accent.500), 0 0 20px theme(colors.accent.500)',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
       },
     },
   },

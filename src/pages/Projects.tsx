@@ -196,7 +196,7 @@ const Projects = () => {
   const ProjectModal = ({ project, onClose }: { project: any; onClose: () => void }) => (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -212,7 +212,7 @@ const Projects = () => {
         
         {/* Modal Content */}
         <motion.div
-          className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-glass-dark backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl"
+          className="relative w-full max-w-6xl max-h-[95vh] sm:max-h-[90vh] overflow-y-auto bg-glass-dark backdrop-blur-xl rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl"
           initial={{ scale: 0.8, opacity: 0, y: 50 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.8, opacity: 0, y: 50 }}
@@ -221,14 +221,14 @@ const Projects = () => {
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 z-10 p-2 rounded-full bg-glass-white backdrop-blur-sm border border-white/10 hover:border-red-500/50 hover:bg-red-500/10 transition-all duration-300 group"
+            className="absolute top-4 sm:top-6 right-4 sm:right-6 z-10 p-2 sm:p-3 rounded-full bg-glass-white backdrop-blur-sm border border-white/10 hover:border-red-500/50 hover:bg-red-500/10 transition-all duration-300 group"
           >
-            <X className="w-5 h-5 text-white/80 group-hover:text-red-400" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-white/80 group-hover:text-red-400" />
           </button>
 
           {/* Header Section */}
           <div className="relative">
-            <div className="h-64 md:h-80 overflow-hidden rounded-t-2xl">
+            <div className="h-48 sm:h-64 md:h-80 overflow-hidden rounded-t-xl sm:rounded-t-2xl">
               <img
                 src={project.image}
                 alt={project.title}
@@ -237,22 +237,22 @@ const Projects = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             </div>
             
-            <div className="absolute bottom-6 left-6 right-16">
+            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-12 sm:right-16">
               <motion.h2
-                className="text-3xl md:text-4xl font-bold text-white mb-2"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
               >
                 {project.title}
               </motion.h2>
-              <div className="flex items-center gap-4 text-white/80">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-white/80 text-sm sm:text-base">
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                   {project.duration}
                 </span>
                 <span className="flex items-center gap-1">
-                  <Users className="w-4 h-4" />
+                  <Users className="w-3 h-3 sm:w-4 sm:h-4" />
                   {project.team}
                 </span>
               </div>
@@ -260,45 +260,45 @@ const Projects = () => {
           </div>
 
           {/* Content Section */}
-          <div className="p-8 space-y-8">
+          <div className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8">
             {/* Role & Impact */}
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-glass-white backdrop-blur-sm p-6 rounded-xl border border-white/10">
-                <h4 className="text-accent-500 font-semibold mb-2 flex items-center gap-2">
-                  <Target className="w-5 h-5" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="bg-glass-white backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-white/10">
+                <h4 className="text-accent-500 font-semibold mb-2 flex items-center gap-2 text-sm sm:text-base">
+                  <Target className="w-4 h-4 sm:w-5 sm:h-5" />
                   My Role
                 </h4>
-                <p className="text-white/90">{project.role}</p>
+                <p className="text-white/90 text-sm sm:text-base">{project.role}</p>
               </div>
-              <div className="bg-glass-white backdrop-blur-sm p-6 rounded-xl border border-white/10">
-                <h4 className="text-accent-500 font-semibold mb-2 flex items-center gap-2">
-                  <Lightbulb className="w-5 h-5" />
+              <div className="bg-glass-white backdrop-blur-sm p-4 sm:p-6 rounded-xl border border-white/10">
+                <h4 className="text-accent-500 font-semibold mb-2 flex items-center gap-2 text-sm sm:text-base">
+                  <Lightbulb className="w-4 h-4 sm:w-5 sm:h-5" />
                   Impact
                 </h4>
-                <p className="text-white/90">{project.impact}</p>
+                <p className="text-white/90 text-sm sm:text-base">{project.impact}</p>
               </div>
             </div>
 
             {/* Description */}
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">About This Project</h3>
-              <p className="text-white/80 text-lg leading-relaxed">{project.fullDescription}</p>
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">About This Project</h3>
+              <p className="text-white/80 text-base sm:text-lg leading-relaxed">{project.fullDescription}</p>
             </div>
 
             {/* Features */}
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Key Features</h3>
-              <div className="grid md:grid-cols-2 gap-3">
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Key Features</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                 {project.features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-start gap-3 p-3 bg-glass-white backdrop-blur-sm rounded-lg border border-white/5"
+                    className="flex items-start gap-3 p-3 sm:p-4 bg-glass-white backdrop-blur-sm rounded-lg border border-white/5"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 + index * 0.05 }}
                   >
                     <div className="w-2 h-2 rounded-full bg-accent-500 mt-2 flex-shrink-0" />
-                    <span className="text-white/90">{feature}</span>
+                    <span className="text-white/90 text-sm sm:text-base">{feature}</span>
                   </motion.div>
                 ))}
               </div>
@@ -306,18 +306,18 @@ const Projects = () => {
 
             {/* Challenges */}
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Challenges Overcome</h3>
-              <div className="grid md:grid-cols-2 gap-3">
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Challenges Overcome</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                 {project.challenges.map((challenge, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-start gap-3 p-3 bg-glass-white backdrop-blur-sm rounded-lg border border-white/5"
+                    className="flex items-start gap-3 p-3 sm:p-4 bg-glass-white backdrop-blur-sm rounded-lg border border-white/5"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.4 + index * 0.05 }}
                   >
                     <div className="w-2 h-2 rounded-full bg-orange-400 mt-2 flex-shrink-0" />
-                    <span className="text-white/90">{challenge}</span>
+                    <span className="text-white/90 text-sm sm:text-base">{challenge}</span>
                   </motion.div>
                 ))}
               </div>
@@ -325,12 +325,12 @@ const Projects = () => {
 
             {/* Technologies */}
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4">Technologies Used</h3>
-              <div className="flex flex-wrap gap-3">
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Technologies Used</h3>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {project.technologies.map((tech, index) => (
                   <motion.span
                     key={index}
-                    className="px-4 py-2 bg-accent-500/10 text-accent-400 rounded-lg border border-accent-500/20 font-medium"
+                    className="px-3 sm:px-4 py-2 bg-accent-500/10 text-accent-400 rounded-lg border border-accent-500/20 font-medium text-sm sm:text-base"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 + index * 0.05 }}
@@ -347,23 +347,23 @@ const Projects = () => {
   );
 
   return (
-    <section className="pt-32 pb-20 min-h-screen">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+    <section className="pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 min-h-screen">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto">
           <motion.div
-            className="relative mb-16 text-center"
+            className="relative mb-12 md:mb-16 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4">
               Featured Projects
             </h2>
             <div className="absolute -inset-4 bg-accent-500/5 blur-xl rounded-full"></div>
           </motion.div>
 
           <motion.div
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -372,7 +372,7 @@ const Projects = () => {
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`relative px-6 py-2 rounded-full font-medium transition-all duration-300 group ${
+                className={`relative px-4 sm:px-6 py-2 sm:py-3 rounded-full font-medium transition-all duration-300 group text-sm sm:text-base ${
                   activeCategory === category.id
                     ? 'text-white'
                     : 'text-white/70 hover:text-white'
@@ -389,7 +389,7 @@ const Projects = () => {
           </motion.div>
 
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -403,7 +403,7 @@ const Projects = () => {
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
                 <div className="relative bg-glass-dark backdrop-blur-xl rounded-xl overflow-hidden border border-white/10 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-glass">
-                  <div className="relative overflow-hidden h-48">
+                  <div className="relative overflow-hidden h-40 sm:h-48 md:h-56">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -416,8 +416,8 @@ const Projects = () => {
                     
                     {/* Click to View Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                      <div className="px-6 py-3 bg-accent-500/20 text-accent-500 rounded-full border border-accent-500/30 backdrop-blur-sm">
-                        <span className="font-medium">
+                      <div className="px-4 sm:px-6 py-2 sm:py-3 bg-accent-500/20 text-accent-500 rounded-full border border-accent-500/30 backdrop-blur-sm">
+                        <span className="font-medium text-sm sm:text-base">
                           {project.category === 'product' && "🔧 Explore the Build"}
                           {project.category === 'graphics' && "🎨 See the Process"}
                           {project.category === 'artwork' && "✨ Enter the Gallery"}
@@ -426,23 +426,23 @@ const Projects = () => {
                     </div>
                   </div>
 
-                  <div className="p-6 relative">
-                    <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-accent-500 transition-colors duration-300">
+                  <div className="p-4 sm:p-6 relative">
+                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-accent-500 transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-white/70 text-sm mb-4 line-clamp-3">{project.description}</p>
+                    <p className="text-white/70 text-sm sm:text-base mb-4 line-clamp-3">{project.description}</p>
                     
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 3).map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-glass-dark backdrop-blur-sm text-white/80 text-xs rounded-full border border-white/5 group-hover:border-accent-500/20 transition-colors duration-300"
+                          className="px-2 sm:px-3 py-1 bg-glass-dark backdrop-blur-sm text-white/80 text-xs sm:text-sm rounded-full border border-white/5 group-hover:border-accent-500/20 transition-colors duration-300"
                         >
                           {tech}
                         </span>
                       ))}
                       {project.technologies.length > 3 && (
-                        <span className="px-3 py-1 bg-glass-dark backdrop-blur-sm text-white/60 text-xs rounded-full border border-white/5">
+                        <span className="px-2 sm:px-3 py-1 bg-glass-dark backdrop-blur-sm text-white/60 text-xs sm:text-sm rounded-full border border-white/5">
                           +{project.technologies.length - 3} more
                         </span>
                       )}
@@ -455,14 +455,14 @@ const Projects = () => {
 
           {/* Digital Graphics Carousel Section */}
           <motion.div
-            className="relative mt-20 mb-16"
+            className="relative mt-16 sm:mt-20 mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-12 px-4">
               <motion.h3 
-                className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 mb-4"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
@@ -470,7 +470,7 @@ const Projects = () => {
                 Digital Graphics Showcase
               </motion.h3>
               <motion.p 
-                className="text-white/70 text-lg max-w-2xl mx-auto"
+                className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
@@ -479,7 +479,7 @@ const Projects = () => {
               </motion.p>
             </div>
 
-            <div className="relative max-w-4xl mx-auto">
+            <div className="relative max-w-5xl mx-auto px-4">
               {/* Carousel Container */}
               <div className="relative overflow-hidden rounded-2xl">
                 <motion.div 
@@ -494,7 +494,7 @@ const Projects = () => {
                         
                         {/* Card Content */}
                         <div className="relative bg-glass-dark backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden">
-                          <div className="aspect-video relative">
+                          <div className="aspect-video sm:aspect-[16/9] relative">
                             <img 
                               src={graphic.image} 
                               alt={graphic.title}
@@ -503,17 +503,17 @@ const Projects = () => {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                             
                             {/* Category Badge */}
-                            <div className="absolute top-4 left-4">
-                              <span className="px-3 py-1 bg-accent-500/20 text-accent-500 text-sm font-medium rounded-full border border-accent-500/30 backdrop-blur-sm">
+                            <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
+                              <span className="px-2 sm:px-3 py-1 bg-accent-500/20 text-accent-500 text-xs sm:text-sm font-medium rounded-full border border-accent-500/30 backdrop-blur-sm">
                                 {graphic.category}
                               </span>
                             </div>
                           </div>
                           
                           {/* Text Content */}
-                          <div className="p-6">
-                            <h4 className="text-xl font-semibold text-white mb-2">{graphic.title}</h4>
-                            <p className="text-white/70">{graphic.description}</p>
+                          <div className="p-4 sm:p-6">
+                            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">{graphic.title}</h4>
+                            <p className="text-white/70 text-sm sm:text-base">{graphic.description}</p>
                           </div>
                         </div>
                       </div>
@@ -525,27 +525,27 @@ const Projects = () => {
               {/* Navigation Buttons */}
               <button
                 onClick={prevSlide}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
               >
-                <ChevronLeft className="w-6 h-6" />
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                 <div className="absolute inset-0 rounded-full bg-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               
               <button
                 onClick={nextSlide}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 bg-glass-dark backdrop-blur-xl border border-white/10 rounded-full flex items-center justify-center text-white hover:text-accent-500 hover:border-accent-500/30 transition-all duration-300 group"
               >
-                <ChevronRight className="w-6 h-6" />
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
                 <div className="absolute inset-0 rounded-full bg-accent-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
               {/* Dots Indicator */}
-              <div className="flex justify-center mt-8 space-x-3">
+              <div className="flex justify-center mt-6 sm:mt-8 space-x-2 sm:space-x-3">
                 {digitalGraphics.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                       currentSlide === index 
                         ? 'bg-accent-500 shadow-neon' 
                         : 'bg-white/20 hover:bg-white/40'

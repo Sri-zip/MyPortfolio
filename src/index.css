@@ -53,6 +53,31 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Responsive font sizes */
+@layer base {
+  html {
+    font-size: 14px;
+  }
+  
+  @screen sm {
+    html {
+      font-size: 15px;
+    }
+  }
+  
+  @screen md {
+    html {
+      font-size: 16px;
+    }
+  }
+  
+  @screen lg {
+    html {
+      font-size: 16px;
+    }
+  }
+}
+
 /* Animation utilities */
 .animate-gradient-nature {
   animation: gradient-nature 15s ease infinite;
@@ -259,4 +284,62 @@ html {
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Responsive container utilities */
+@layer utilities {
+  .container-responsive {
+    @apply w-full mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+  
+  .text-responsive-3xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  .spacing-responsive {
+    @apply space-y-4 sm:space-y-6 md:space-y-8;
+  }
+  
+  .padding-responsive {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+  
+  .margin-responsive {
+    @apply m-4 sm:m-6 md:m-8;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .group:hover .group-hover\:scale-110 {
+    transform: scale(1.05);
+  }
+  
+  .hover\:scale-\[1\.02\]:hover {
+    transform: scale(1.01);
+  }
 }
