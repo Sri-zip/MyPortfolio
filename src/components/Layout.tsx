@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { Menu, X } from 'lucide-react';
 import StarField from './StarField';
 
@@ -8,21 +8,21 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Skills', path: '/skills' },
     { name: 'Projects', path: '/projects' },
     { name: 'Contact', path: '/contact' }
-  ];
+  ], []);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
 
-  const closeMobileMenu = () => {
+  const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
-  };
+  }, []);
 
   return (
     <div className="min-h-screen bg-primary-900">

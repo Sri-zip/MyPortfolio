@@ -17,24 +17,20 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent animate-shimmer"></div>
 
         {/* Floating elements with inner glow - Responsive */}
-        {[...Array(6)].map((_, i) => (
+        {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute hidden sm:block"
+            className="absolute hidden lg:block"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: i * 0.2 }}
+            transition={{ duration: 1, delay: i * 0.3 }}
             style={{
-              top: `${15 + (i * 12)}%`,
-              left: `${10 + (i * 15)}%`,
+              top: `${20 + (i * 20)}%`,
+              left: `${15 + (i * 25)}%`,
             }}
           >
             <div className="relative">
-              <div className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full blur-3xl animate-float-smooth opacity-10 bg-gradient-to-br from-accent-500/20 to-accent-400/20"></div>
-              <div className="absolute inset-0 rounded-full animate-pulse-subtle" 
-                   style={{
-                     background: 'radial-gradient(circle at center, rgba(100, 255, 218, 0.1), transparent 70%)'
-                   }}></div>
+              <div className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 rounded-full blur-3xl animate-float-smooth opacity-5 bg-gradient-to-br from-accent-500/20 to-accent-400/20"></div>
             </div>
           </motion.div>
         ))}

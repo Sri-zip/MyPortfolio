@@ -336,10 +336,33 @@ html {
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
   .group:hover .group-hover\:scale-110 {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
   
   .hover\:scale-\[1\.02\]:hover {
     transform: scale(1.01);
+  }
+  
+  /* Reduce animations on mobile for better performance */
+  .animate-float-smooth {
+    animation: none;
+  }
+  
+  .animate-shimmer {
+    animation: none;
+  }
+  
+  .animate-flow-y,
+  .animate-flow-x {
+    animation: none;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

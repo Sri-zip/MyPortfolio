@@ -233,6 +233,8 @@ const Projects = () => {
                 src={project.image}
                 alt={project.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
             </div>
@@ -408,6 +410,8 @@ const Projects = () => {
                       src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      decoding="async"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary-900 to-transparent opacity-60"></div>
                     
@@ -499,6 +503,8 @@ const Projects = () => {
                               src={graphic.image} 
                               alt={graphic.title}
                               className="w-full h-full object-cover"
+                              loading="lazy"
+                              decoding="async"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                             
