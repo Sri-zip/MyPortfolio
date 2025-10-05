@@ -241,7 +241,7 @@ const Projects = () => {
             
             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-12 sm:right-16">
               <motion.h2
-                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 font-heading"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
@@ -283,13 +283,13 @@ const Projects = () => {
 
             {/* Description */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">About This Project</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">About This Project</h3>
               <p className="text-white/80 text-base sm:text-lg leading-relaxed">{project.fullDescription}</p>
             </div>
 
             {/* Features */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Key Features</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">Key Features</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                 {project.features.map((feature, index) => (
                   <motion.div
@@ -308,7 +308,7 @@ const Projects = () => {
 
             {/* Challenges */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Challenges Overcome</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">Challenges Overcome</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                 {project.challenges.map((challenge, index) => (
                   <motion.div
@@ -327,12 +327,12 @@ const Projects = () => {
 
             {/* Technologies */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-3 sm:mb-4">Technologies Used</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">Technologies Used</h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {project.technologies.map((tech, index) => (
                   <motion.span
                     key={index}
-                    className="px-3 sm:px-4 py-2 bg-accent-500/10 text-accent-400 rounded-lg border border-accent-500/20 font-medium text-sm sm:text-base"
+                    className="px-3 sm:px-4 py-2 bg-accent-500/10 text-accent-400 rounded-lg border border-accent-500/20 font-ui font-medium text-sm sm:text-base"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.5 + index * 0.05 }}
@@ -358,7 +358,7 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4 font-display">
               Featured Projects
             </h2>
             <div className="absolute -inset-4 bg-accent-500/5 blur-xl rounded-full"></div>
@@ -421,7 +421,7 @@ const Projects = () => {
                     {/* Click to View Overlay */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
                       <div className="px-4 sm:px-6 py-2 sm:py-3 bg-accent-500/20 text-accent-500 rounded-full border border-accent-500/30 backdrop-blur-sm">
-                        <span className="font-medium text-sm sm:text-base">
+                        <span className="font-ui font-medium text-sm sm:text-base">
                           {project.category === 'product' && "🔧 Explore the Build"}
                           {project.category === 'graphics' && "🎨 See the Process"}
                           {project.category === 'artwork' && "✨ Enter the Gallery"}
@@ -431,7 +431,7 @@ const Projects = () => {
                   </div>
 
                   <div className="p-4 sm:p-6 relative">
-                    <h3 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-accent-500 transition-colors duration-300">
+                    <h3 className="text-lg sm:text-xl font-semibold font-heading text-white mb-2 group-hover:text-accent-500 transition-colors duration-300">
                       {project.title}
                     </h3>
                     <p className="text-white/70 text-sm sm:text-base mb-4 line-clamp-3">{project.description}</p>
@@ -518,7 +518,7 @@ const Projects = () => {
                           
                           {/* Text Content */}
                           <div className="p-4 sm:p-6">
-                            <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">{graphic.title}</h4>
+                            <h4 className="text-lg sm:text-xl font-semibold font-heading text-white mb-2">{graphic.title}</h4>
                             <p className="text-white/70 text-sm sm:text-base">{graphic.description}</p>
                           </div>
                         </div>

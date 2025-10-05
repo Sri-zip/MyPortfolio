@@ -87,7 +87,7 @@ const Contact = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 mb-4 sm:mb-6 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 mb-4 sm:mb-6 px-4 font-display">
               Get In Touch
             </h2>
             <div className="absolute -inset-4 bg-accent-500/5 blur-xl rounded-full"></div>
@@ -160,7 +160,7 @@ const Contact = () => {
                     className="w-full px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-glass-dark backdrop-blur-xl border border-accent-500/20 text-accent-500 hover:text-white hover:bg-accent-500/20 hover:border-accent-500 hover:shadow-neon transition-all duration-300 group disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-sm sm:text-base"
                   >
                     <Send className="w-4 h-4 sm:w-5 sm:h-5" />
-                    <span className="relative z-10 font-medium">
+                    <span className="relative z-10 font-ui font-medium">
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </span>
                     <span className="absolute inset-0 bg-accent-500/10 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300"></span>
@@ -174,7 +174,7 @@ const Contact = () => {
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-accent-500/50 to-accent-400/50 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
                 <div className="relative bg-glass-dark backdrop-blur-xl p-6 sm:p-8 rounded-xl border border-white/10 hover:border-accent-500/20 transition-all duration-300">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">Connect With Me</h3>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6 font-heading">Connect With Me</h3>
                   <div className="space-y-3 sm:space-y-4">
                     {socialLinks.map((link) => (
                       <a
@@ -187,7 +187,7 @@ const Contact = () => {
                         <span className="p-2 sm:p-3 rounded-lg bg-glass-white backdrop-blur-sm border border-white/10 group-hover:border-accent-500/20 transition-all duration-300 flex-shrink-0">
                           {link.icon}
                         </span>
-                        <span className="font-medium text-sm sm:text-base">{link.name}</span>
+                        <span className="font-ui font-medium text-sm sm:text-base">{link.name}</span>
                       </a>
                     ))}
                   </div>

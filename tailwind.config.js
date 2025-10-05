@@ -12,8 +12,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        'delius': ['Delius', 'cursive'],
-        'oregano': ['Oregano', 'cursive'],
+        'display': ['Oregano', 'cursive'], // For main headings and titles
+        'heading': ['Oregano', 'cursive'], // For section headings
+        'body': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'], // For body text
+        'ui': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'], // For UI elements
+        'oregano': ['Oregano', 'cursive'], // Legacy support
+        'delius': ['Delius', 'cursive'], // Legacy support
       },
       colors: {
         primary: {

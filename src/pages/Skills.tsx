@@ -56,7 +56,7 @@ const Skills = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4 font-display">
               Skills & Expertise
             </h2>
             <div className="absolute -inset-4 bg-accent-500/5 blur-xl rounded-full"></div>
@@ -80,7 +80,7 @@ const Skills = () => {
                     <div className="flex-shrink-0">
                       {skill.icon}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white">{skill.category}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold text-white font-heading">{skill.category}</h3>
                   </div>
                   <div className="space-y-2 flex-grow">
                     {skill.items.map((item, itemIndex) => (

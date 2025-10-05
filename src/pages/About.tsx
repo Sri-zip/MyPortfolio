@@ -19,7 +19,7 @@ const About = () => {
   const navigate = useNavigate();
   
   return (
-    <div className="min-h-screen bg-primary-900 font-nunito">
+    <div className="min-h-screen bg-primary-900 font-body">
       {/* Hero Section */}
       <section className="min-h-screen relative flex items-center pt-20 sm:pt-24 md:pt-28">
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -54,7 +54,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="space-y-4 sm:space-y-6">
-                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-oregano leading-tight">
+                <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-tight">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 animate-gradient">
                     Designing ideas into experiences.
                   </span>
@@ -73,7 +73,7 @@ const About = () => {
                 transition={{ delay: 1 }}
               >
                 <div className="h-[1px] w-6 sm:w-8 bg-gradient-to-r from-accent-500/50 to-transparent" />
-                <span className="text-xs sm:text-sm font-medium tracking-wider uppercase">
+                <span className="text-xs sm:text-sm font-body font-medium tracking-wider uppercase">
                   Explore my journey
                 </span>
                 <div className="h-[1px] w-6 sm:w-8 bg-gradient-to-l from-accent-500/50 to-transparent" />
@@ -93,7 +93,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-oregano text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300 text-center lg:text-left">
               Skills & Tools
             </h3>
             <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -151,7 +151,7 @@ const About = () => {
                     <div className="text-accent-500 group-hover:text-accent-400 transition-colors duration-300 flex-shrink-0">
                       {skill.icon}
                     </div>
-                    <span className="text-xs sm:text-sm font-medium text-white/90">{skill.label}</span>
+                    <span className="text-xs sm:text-sm font-ui font-medium text-white/90">{skill.label}</span>
                   </div>
                 </motion.div>
               ))}
@@ -165,14 +165,14 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-oregano text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
               Education
             </h3>
             <div className="relative group">
               <div className="relative bg-primary-900/80 backdrop-blur-xl p-4 sm:p-6 rounded-xl border border-white/10 hover:border-accent-500/20 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mb-3 sm:mb-4">
                   <GraduationCap size={28} className="text-accent-500 group-hover:text-accent-400 transition-colors duration-300 mx-auto sm:mx-0" />
-                  <h4 className="text-lg sm:text-xl md:text-2xl font-semibold font-oregano text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">Maynooth University</h4>
+                  <h4 className="text-lg sm:text-xl md:text-2xl font-semibold font-heading text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">Maynooth University</h4>
                 </div>
                 <div className="text-center sm:text-left">
                   <p className="text-white/80 text-sm sm:text-base">Bachelor's in Product Design & Innovation</p>
@@ -189,7 +189,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-oregano text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
               Experience
             </h3>
             <div className="space-y-4 sm:space-y-6">
@@ -224,7 +224,7 @@ const About = () => {
                       <div className="mx-auto sm:mx-0 flex-shrink-0">
                         {exp.icon}
                       </div>
-                      <h4 className="text-lg sm:text-xl font-semibold font-oregano text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">{exp.title}</h4>
+                      <h4 className="text-lg sm:text-xl font-semibold font-heading text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">{exp.title}</h4>
                     </div>
                     <div className="text-center sm:text-left space-y-1 sm:space-y-2">
                       <p className="text-white/80 text-sm sm:text-base">{exp.company}</p>
@@ -245,7 +245,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-oregano text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
               Languages
             </h3>
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
@@ -280,7 +280,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-oregano text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
               Beyond Design
             </h3>
             <div className="relative group">
@@ -307,7 +307,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-oregano text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4">
+            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4">
               Curious about how I bring ideas to life?
             </h3>
             <button

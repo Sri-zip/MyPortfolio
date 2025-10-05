@@ -37,7 +37,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               <li key={item.name}>
                 <Link
                   to={item.path}
-                  className={`relative text-white/90 hover:text-accent-500 transition-colors duration-300 text-base lg:text-lg font-oregano group ${
+                  className={`relative text-white/90 hover:text-accent-500 transition-colors duration-300 text-base lg:text-lg font-ui group ${
                     location.pathname === item.path ? 'text-accent-500' : ''
                   }`}
                 >
@@ -102,7 +102,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                       <Link
                         to={item.path}
                         onClick={closeMobileMenu}
-                        className={`block px-4 py-3 rounded-lg text-white/90 hover:text-accent-500 transition-all duration-300 font-oregano text-lg ${
+                        className={`block px-4 py-3 rounded-lg text-white/90 hover:text-accent-500 transition-all duration-300 font-ui text-lg ${
                           location.pathname === item.path 
                             ? 'text-accent-500 bg-accent-500/10 border border-accent-500/20' 
                             : 'hover:bg-white/5'
