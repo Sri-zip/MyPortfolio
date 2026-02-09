@@ -18,6 +18,7 @@ export default {
         'ui': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'], // For UI elements
         'oregano': ['Oregano', 'cursive'], // Legacy support
         'delius': ['Delius', 'cursive'], // Legacy support
+        'zalando': ['Zalando Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'], // Zalando Sans SemiExpanded
       },
       colors: {
         primary: {
