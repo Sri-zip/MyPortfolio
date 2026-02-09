@@ -172,7 +172,7 @@ const About = () => {
               <div className="relative bg-primary-900/80 backdrop-blur-xl p-4 sm:p-6 rounded-xl border border-white/10 hover:border-accent-500/20 transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-3 mb-3 sm:mb-4">
                   <GraduationCap size={28} className="text-accent-500 group-hover:text-accent-400 transition-colors duration-300 mx-auto sm:mx-0" />
-                  <h4 className="text-lg sm:text-xl md:text-2xl font-semibold font-heading text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">Maynooth University</h4>
+                  <h4 className="text-lg sm:text-xl md:text-2xl font-semibold font-zalando text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">Maynooth University</h4>
                 </div>
                 <div className="text-center sm:text-left">
                   <p className="text-white/80 text-sm sm:text-base">Bachelor's in Product Design & Innovation</p>
@@ -224,7 +224,7 @@ const About = () => {
                       <div className="mx-auto sm:mx-0 flex-shrink-0">
                         {exp.icon}
                       </div>
-                      <h4 className="text-lg sm:text-xl font-semibold font-heading text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">{exp.title}</h4>
+                      <h4 className="text-lg sm:text-xl font-semibold font-zalando text-white group-hover:text-accent-500 transition-colors duration-300 text-center sm:text-left">{exp.title}</h4>
                     </div>
                     <div className="text-center sm:text-left space-y-1 sm:space-y-2">
                       <p className="text-white/80 text-sm sm:text-base">{exp.company}</p>

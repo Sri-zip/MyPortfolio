@@ -80,7 +80,7 @@ const Skills = () => {
                     <div className="flex-shrink-0">
                       {skill.icon}
                     </div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-white font-heading">{skill.category}</h3>
+                    <h3 className="text-lg sm:text-xl font-semibold text-white font-zalando">{skill.category}</h3>
                   </div>
                   <div className="space-y-2 flex-grow">
                     {skill.items.map((item, itemIndex) => (
