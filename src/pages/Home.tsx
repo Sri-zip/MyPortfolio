@@ -75,17 +75,16 @@ const Home = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold mb-6 sm:mb-8 md:mb-6 font-display leading-tight text-center">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 via-accent-400 to-accent-500 animate-gradient-nature relative"
-                    style={{ transform: 'translateZ(0)', willChange: 'background-position' }}>
+              <span className="relative" style={{ transform: 'translateZ(0)', willChange: 'background-position' }}>
                 <BlurText 
                   text="Tejal Srivastava" 
                   delay={180} 
-                  className="inline-block" 
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-accent-500 via-accent-400 to-accent-500 animate-gradient-nature inline-block" 
                   animateBy="words"
                   direction="top"
                   stepDuration={0.35}
                 />
-                <span className="absolute inset-0 blur-xl bg-gradient-to-r from-accent-500/30 via-accent-400/30 to-accent-500/30 animate-pulse-subtle"></span>
+                <span className="absolute inset-0 blur-xl bg-gradient-to-r from-accent-500/30 via-accent-400/30 to-accent-500/30 animate-pulse-subtle pointer-events-none"></span>
               </span>
             </h1>
             <div className="absolute -inset-1 bg-accent-500/10 blur-2xl rounded-full"></div>
