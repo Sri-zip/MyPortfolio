@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center space-y-2 sm:space-y-3">
           <p className="text-gray-400 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 text-sm sm:text-base">
-            <span>© 2024 Portfolio. Made with</span>
+            <span>© 2026 Portfolio. Made with</span>
             <span className="flex items-center gap-1">
               <Heart className="text-red-500" size={14} />
               <span>and lots of creativity</span>
