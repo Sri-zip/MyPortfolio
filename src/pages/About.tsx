@@ -93,7 +93,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-zalando text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-300 text-center lg:text-left font-semibold">
               Skills & Tools
             </h3>
             <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -165,7 +165,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-zalando text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left font-semibold">
               Education
             </h3>
             <div className="relative group">
@@ -189,7 +189,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-zalando text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left font-semibold">
               Experience
             </h3>
             <div className="space-y-4 sm:space-y-6">
@@ -245,7 +245,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-zalando text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left font-semibold">
               Languages
             </h3>
             <div className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
@@ -280,7 +280,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left">
+            <h3 className="text-2xl sm:text-3xl font-bold font-zalando text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 text-center lg:text-left font-semibold">
               Beyond Design
             </h3>
             <div className="relative group">
@@ -307,7 +307,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl sm:text-3xl font-bold font-heading text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4">
+            <h3 className="text-2xl sm:text-3xl font-bold font-zalando text-transparent bg-clip-text bg-gradient-to-r from-accent-500 to-accent-400 px-4 font-semibold">
               Curious about how I bring ideas to life?
             </h3>
             <button
