@@ -246,7 +246,7 @@ const Projects = () => {
             
             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-12 sm:right-16">
               <motion.h2
-                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 font-heading"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 font-zalando"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
@@ -288,13 +288,13 @@ const Projects = () => {
 
             {/* Description */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">About This Project</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-zalando text-white mb-3 sm:mb-4">About This Project</h3>
               <p className="text-white/80 text-base sm:text-lg leading-relaxed">{project.fullDescription}</p>
             </div>
 
             {/* Features */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">Key Features</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-zalando text-white mb-3 sm:mb-4">Key Features</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                 {project.features.map((feature, index) => (
                   <motion.div
@@ -313,7 +313,7 @@ const Projects = () => {
 
             {/* Challenges */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">Challenges Overcome</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-zalando text-white mb-3 sm:mb-4">Challenges Overcome</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                 {project.challenges.map((challenge, index) => (
                   <motion.div
@@ -332,7 +332,7 @@ const Projects = () => {
 
             {/* Technologies */}
             <div>
-              <h3 className="text-xl sm:text-2xl font-semibold font-heading text-white mb-3 sm:mb-4">Technologies Used</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold font-zalando text-white mb-3 sm:mb-4">Technologies Used</h3>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {project.technologies.map((tech, index) => (
                   <motion.span
